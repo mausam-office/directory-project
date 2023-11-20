@@ -1,0 +1,48 @@
+<!-- Author: Mausam Rajbanshi (AI Developer) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directory Manager</title>
+</head>
+<body>
+    <h1><b>Welcome to Directory Manager</b></h1>
+
+    <div>
+        <div style="background-color: magenta; width: 44%; height: 120px; float:left;; padding-left: 2%;">  
+            <form action="/create" method="post" style="padding-top: 5px;">
+                <label for="dirName">Enter New Directory Name.</label>
+                <br><br>
+                <input type="text" id="dirName" name="dirName">
+
+                <button type="submit">Create Directory</button>
+            </form>
+            <p style="color: yellow; padding-left: 2%;">{{ created }}</p>
+        </div>
+
+        <div style="background-color: yellow; width:44%; height: 180px; float:left;">  
+            <form action="/upload" method="post" enctype="multipart/form-data" style="padding-top: 5px; padding-left: 2%;">
+                <label for="selectDir">Select Directory</label><br>
+                <!-- <input type="text" id="selectDir" name="selectDir"> -->
+                <select id="selectDir" name="selectDir">
+                    {% for directory in directories %}
+                    <option value="{{directory}}">{{directory}}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <label for="selectFile">Select a file (bin file only):</label>
+                <input type="file" id="selectFile" name="selectFile" accept=".bin"><br><br>
+
+                <button type="submit">Upload File</button>
+            </form>
+            <p style="color: magenta; padding-left: 2%;">{{ uploaded }}</p>
+        </div>
+
+        <div style="width:5%; height: 10px; float:right;">
+            <form action="login">
+                <button type="submit">Logout</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+bin-files/
+projects/
+venv/
+zipp/
+.env
+test.py
