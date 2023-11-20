@@ -1,6 +1,7 @@
 '''Author: Mausam Rajbanshi (AI Developer)'''
 import aiofiles
 import os
+import uvicorn
 
 from decouple import config
 from fastapi import FastAPI, Request, Form, File, UploadFile
@@ -159,3 +160,5 @@ def download(project_name:str, version:str):
     
     return "Requested file not available"
 
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8888, log_level="info", reload=False)
